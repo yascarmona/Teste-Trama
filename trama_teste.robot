@@ -7,24 +7,23 @@ Test Teardown    Fechar o navegador
 # branch yasmin
 
 *** Test Cases ***
-CT1 - Cadastro de conta com CPF invalido
+CT1 - Login Cliente
 	[Documentation]    Esse teste verifica o login de um usuario ativo
-	[Tags]             cadastro_CPFInvalido
-	Acessar a pagina home do site
-    Clicar no Botão de Login
-	Entrar na Aba "AINDA NÃO TENHO UMA CONTA"
-    Preencher dados válidos uma nova conta, mas inserir no campo "CPF" numeros invalidos.
-	Verificar Impedimento de Cadastro
+	[Tags]             login_cliente
+		Acessar a pagina home page do site Trama
+		Acessar a pagina de login do sistema
+		Selecionar Campo "Cliente"
+		Inserir credencias requeridas (CPF e senha) ja cadastradas no banco
+		Clicar em "Entrar"
+		Verificar se o título da página é produto
 
-
-CT2 - Realizar Login
-    [Documentation]    Esse teste verifica o login de um usuario ativo
-	[Tags]             cadastro_CPFInvalido
-	Acessar a pagina home do site
-    Clicar no Botão de Login
-	Selecionar Campo "Empresa"
-	Inserir credencias requeridas (CNPJ e senha) ja cadastradas no banco
-	Clicar em "Entrar"
-	Verificar se o título da página
-
-
+CT2 - Cadastro de produto sem preço
+    [Documentation]     Esse teste verifica o cadastro de um produto sem preço
+	[Tags]    cadastro_produto
+	    Acessar a pagina home page do site Trama
+		Acessar a pagina de login do sistema
+		Selecionar Campo "Empresa"
+		Inserir credencias requeridas (CNPJ e senha) ja cadastradas no banco
+		Clicar em "Entrar"
+		
+		

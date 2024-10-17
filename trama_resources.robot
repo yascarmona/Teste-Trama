@@ -5,16 +5,15 @@ Library    Screenshot
 *** Variables ***
 ${BROWSER}	chrome 
 ${URL}		http://localhost/trama/SemLogin/index.html
-${NOME}    Guilherme
-${SOBRENOME}    Belo
-${CPF}    12345678910
-${TELEFONE}	41985108854
-${EMAIL}	gui@belo
-${SENHA}	Senha@1234
-${MENSAGEM_FALHA_LOGIN}    CPF inválido!
+${NOME}    Yasmin
+${SOBRENOME}    Carmona
+${CPF}    42029893846
 ${CNPJ}    98.509.568/0001-37
-${TITULO}    FORMULÁRIO DE INSERÇÃO DE PRODUTO
-
+${SENHA}	senha@1234
+${SENHAHASH}    $2y$10$7yV6LQE5BalsmA3QQL
+${TITULO}     PRODUTO
+${PREÇO}     
+${PRODUTO}     "Blusa"
 
 *** Keywords ***
 Abrir o navegador
@@ -24,38 +23,40 @@ Abrir o navegador
 Fechar o navegador
     Sleep    2
 	Close Browser
-Verificar Impedimento de Cadastro
-    Take Screenshot    evidencia
-Acessar a pagina home do site
+Acessar a pagina home page do site Trama
 	Go To	url=${URL}
 
-Clicar no Botão de Login
+Acessar a pagina de login do sistema
     Click Element    xpath://a[@href='../Login/login.html']
-Entrar na Aba "AINDA NÃO TENHO UMA CONTA"
-    Click Element    xpath://a[@href='../Cadastro/cadastro.html']  
 
-Preencher dados válidos uma nova conta, mas inserir no campo "CPF" numeros invalidos. 
-    Input Text    xpath://input[@id='nome']       ${NOME}
-    Input Text    xpath://input[@id='sobrenome']  ${SOBRENOME}
-    Input Text    xpath://input[@id='email']      ${EMAIL}
-    Input Text    xpath://input[@id='tel']   ${TELEFONE}
-    Input Text    xpath://input[@id='senha']      ${SENHA}
+
+Selecionar Campo "Cliente"
+    Click Element    xpath://input[@id='cliente']
+
+
+Inserir credencias requeridas (CPF e senha) ja cadastradas no banco
     Input Text    xpath://input[@id='cpf']        ${CPF}
-    Click Button  xpath://input[@type='submit' and @value='Enviar']
+    Input Text    xpath://input[@id='senha']      ${SENHA}
 
-Verificar mensagem de falha no login
-	${MENSAGEM_TELA}=	Get webElement	id:toast-container
-	Should Contain	${MENSAGEM_TELA.text}	${MENSAGEM_FALHA_LOGIN}
+Clicar em "Entrar"
+    Click Button  xpath://input[@value='ENTRAR']
+
+Verificar se o título da página é produto
+    Title Should Be    title=${TITULO}
+    Take Screenshot    evidencia
 
 Selecionar Campo "Empresa"
     Click Element    xpath://input[@id='empresa']
 
 Inserir credencias requeridas (CNPJ e senha) ja cadastradas no banco
     Input Text    xpath://input[@id='cnpj']        ${CNPJ}
-    Input Text    xpath://input[@id='senha']      ${SENHA}
+    Input Text    xpath://input[@id='senha']      ${SENHAHASH}
 
-Clicar em "Entrar"
-    Click Button  xpath://input[@value='ENTRAR']
 
-Verificar se o título da página 
-    Title Should Be    title=${TITULO}
+Preencher dados válidos para o novo produto
+    Input Text    xpath://input[@id='nome']       ${NOME}
+    Input Text    xpath://input[@id='marca']  ${MARCA}
+    Input Text    xpath://input[@id='preco']      ${PRECO}
+    Input Text    xpath://input[@id='descricao']   ${DESCRICAO}
+    Input Text    xpath://input[@id='imagem']      ${IMAGEM}
+    Click Button  xpath://input[@type='submit' and @value='Inserir Produto']

@@ -3,7 +3,7 @@ Library	SeleniumLibrary
 Library    Screenshot
 
 *** Variables ***
-${BROWSER}	chrome 
+${BROWSER}	Chrome
 ${URL}		http://localhost/trama/SemLogin/index.html
 ${NOME}    Yasmin
 ${SOBRENOME}    Carmona
@@ -23,6 +23,7 @@ Abrir o navegador
 Fechar o navegador
     Sleep    2
 	Close Browser
+    
 Acessar a pagina home page do site Trama
 	Go To	url=${URL}
 

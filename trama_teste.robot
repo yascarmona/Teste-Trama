@@ -17,7 +17,7 @@ CT1 - Login Cliente
 		Clicar em "Entrar"
 		Verificar se o título da página é produto
 
-CT2 - Cadastro de produto sem preço
+CT2 - Cadastro de produto sem imagem
     [Documentation]     Esse teste verifica o cadastro de um produto sem preço
 	[Tags]    cadastro_produto
 	    Acessar a pagina home page do site Trama
@@ -25,5 +25,8 @@ CT2 - Cadastro de produto sem preço
 		Selecionar Campo "Empresa"
 		Inserir credencias requeridas (CNPJ e senha) ja cadastradas no banco
 		Clicar em "Entrar"
-		
+		Verificar se o título da página é FORMULÁRIO DE INSERÇÃO DE PRODUTO
+		Preencher dados válidos para o novo produto menos a imagem
+		Verificar o valor do src da imagem
+
 		

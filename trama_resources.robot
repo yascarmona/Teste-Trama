@@ -66,6 +66,11 @@ Preencher dados válidos para o novo produto menos a imagem
     Input Text    xpath://input[@id='descricao']  Blusa feminina de algodão
     Click Button    xpath://input[@type='submit' and @value='Inserir Produto']
 
+
+Clicar em "Seus Produtos"
+    Click Button  xpath:/html/body/header/a[1]/button
+
+
 Verificar o valor do src da imagem
     ${src}=    Get Element Attribute    xpath=/html/body/div/div/div[3]/img    src
     Should Not Be Equal    ${src}    ${IMG_DEFAULT_SRC}

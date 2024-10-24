@@ -27,6 +27,7 @@ CT2 - Cadastro de produto sem imagem
 		Clicar em "Entrar"
 		Verificar se o título da página é FORMULÁRIO DE INSERÇÃO DE PRODUTO
 		Preencher dados válidos para o novo produto menos a imagem
+		Clicar em "Seus Produtos"
 		Verificar o valor do src da imagem
 
 		

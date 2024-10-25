@@ -1,4 +1,4 @@
-*** Settings ***
+* Settings *
 Documentation    Essa suíte testa o site da Trama
 Resource         trama_resources.robot
 Test Setup       Abrir o navegador
@@ -6,7 +6,7 @@ Test Teardown    Fechar o navegador
 
 # branch yasmin
 
-*** Test Cases ***
+* Test Cases *
 CT1 - Login Cliente
 	[Documentation]    Esse teste verifica o login de um usuario ativo
 	[Tags]             login_cliente
@@ -29,5 +29,3 @@ CT2 - Cadastro de produto sem imagem
 		Preencher dados válidos para o novo produto menos a imagem
 		Clicar em "Seus Produtos"
 		Verificar o valor do src da imagem
-
-		

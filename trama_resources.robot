@@ -2,6 +2,9 @@
 Library	SeleniumLibrary
 Library    Screenshot
 
+
+alterado 
+
 * Variables *
 ${BROWSER}	chrome 
 ${URL}		http://localhost/trama/SemLogin/index.html
@@ -15,7 +18,8 @@ ${TITULO}     PRODUTO
 ${TITULO2}  FORMULÁRIO DE INSERÇÃO DE PRODUTO
 ${PRECO}    80
 ${PRODUTO}    Blusa
-${IMG_SRC}    ../uploads/
+${IMG_DEFAULT_SRC}    ../uploads/
+
 
 * Keywords *
 Abrir o navegador
@@ -67,7 +71,7 @@ Preencher dados válidos para o novo produto menos a imagem
     Click Button    xpath://input[@type='submit' and @value='Inserir Produto']
 
 Clicar em "Seus Produtos"
-    Click Button  xpath:/html/body/header/a[1]/button
+    Click Button  xpath:/html/body/header/a[1]/button  
 
 Verificar o valor do src da imagem
     ${src}=    Get Element Attribute    xpath=/html/body/div/div/div[3]/img    src
